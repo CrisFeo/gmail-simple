@@ -1,0 +1,16 @@
+{
+  "name": "gmail-simple",
+  "version": "1.0.0",
+  "description": "A userscript that spruces up the basic HTML version of gmail to make it look nicer and function better with productivity plugins like Vimium.",
+  "main": "src/index.js",
+  "author": "CrisFeo",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "6.18.x",
+    "babelify": "7.3.x",
+    "browserify": "13.1.x",
+    "eslint": "3.9.x",
+    "jsctags": "5.1.x",
+    "node-sass": "3.13.x"
+  }
+}
