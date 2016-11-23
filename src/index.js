@@ -1,4 +1,1 @@
-const dom = require('./dom');
-
-
-console.log(dom.a());
+console.log('Gmail Simple loaded');

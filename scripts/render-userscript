@@ -41,7 +41,7 @@ printf '// ==UserScript==
   style.type = "text/css";
   style.innerHTML = "%s";
   head.appendChild(style);
-});
+})();
 
 // Bundled code
 %s' "$CSS_CONTENTS" "$JS_CONTENTS"

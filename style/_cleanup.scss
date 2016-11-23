@@ -1,0 +1,46 @@
+// There are a number of elements of the gmail interface that are not necessary
+// for basic interaction. This included many of the header/footer/sidebar
+// sections as well as some visual sizing elements. This file handles marking
+// them as `display: none` or otherwise removing them.
+
+// Hide the header link bar
+#gbar,
+#guser,
+.gbh
+{
+  display: none;
+}
+
+// Hide search bar buttons
+input[name="nvp_site_web"], // "Search the Web"
+a[href="?&pv=tl&v=as"],     // "Show search options"
+a[href="?&pv=tl&v=caf"],    // "Create a filter"
+{
+  display: none;
+}
+
+// Hide sidebar section
+a[href="?&v=cl"], // "Contacts"
+table.l,          // "Labels"
+{
+  display: none;
+}
+
+// Hide buttons in top-of-inbox controls
+input[name="nvp_a_sp"],   // "Report Spam"
+select[name="tact"],       // "More Actions..."
+input[name="nvp_tbu_go"], // "Go"
+{
+  display: none;
+}
+
+// Hide bottom-of-inbox controls
+form[name="f"] table:nth-of-type(3) {
+  display: none;
+}
+
+// Hide page footer
+.ft {
+  display: none;
+}
+

@@ -1,12 +1,1 @@
-.container {
-  &-big {
-    color: red;
-  }
-  &:after {
-    contents: "hello";
-  }
-}
-
-body {
-  background-color: red;
-}
+@import "cleanup";

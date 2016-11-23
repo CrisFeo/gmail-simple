@@ -32,6 +32,6 @@ dist/bundle.js: src/index.js $(SRC_JS)
 	@mkdir -p $(@D)
 	@$(BROWSERIFY) $< -o $@ -t [ babelify --presets [ es2015 ] ]
 
-dist/gmail-simple.user.js: dist/bundle.js dist/styles.css
+dist/gmail-simple.user.js: scripts/render-userscript dist/bundle.js dist/styles.css
 	@mkdir -p $(@D)
 	@scripts/render-userscript dist/styles.css dist/bundle.js > $@
