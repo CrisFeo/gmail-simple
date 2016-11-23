@@ -23,7 +23,8 @@ JS_CONTENTS=$(cat "$JS_FILE")
 printf '// ==UserScript==
 // @name         Gmail Simple
 // @namespace    https://github.com/CrisFeo/gmail-simple
-// @version      0.1
+// @@downloadURL https://raw.githubusercontent.com/CrisFeo/gmail-simple/master/dist/gmail-simple.user.js
+// @version      1.0.0
 // @description  Spruces up the basic HTML version of gmail to make it look nicer and function better with vimium.
 // @author       CrisFeo
 // @match        https://mail.google.com/mail/u/*/h/*

@@ -10,7 +10,7 @@ all: tags dist/gmail-simple.user.js
 
 .PHONY: clean
 clean:
-	@rm -rf dist tags
+	@rm -rf build dist tags
 
 .PHONY: lint
 lint: $(SRC_JS)
@@ -24,14 +24,14 @@ setup:
 tags: $(SRC_JS)
 	@$(JSCTAGS) $(SRC_JS) -f | sed '/^$$/d' | sort > $@
 
-dist/styles.css: style/index.scss $(SRC_SCSS)
+build/styles.css: style/index.scss $(SRC_SCSS)
 	@mkdir -p $(@D)
 	@$(NODE-SASS) -q $< $@
 
-dist/bundle.js: src/index.js $(SRC_JS)
+build/bundle.js: src/index.js $(SRC_JS)
 	@mkdir -p $(@D)
 	@$(BROWSERIFY) $< -o $@ -t [ babelify --presets [ es2015 ] ]
 
-dist/gmail-simple.user.js: scripts/render-userscript dist/bundle.js dist/styles.css
+dist/gmail-simple.user.js: scripts/render-userscript build/bundle.js build/styles.css
 	@mkdir -p $(@D)
-	@scripts/render-userscript dist/styles.css dist/bundle.js > $@
+	@scripts/render-userscript build/styles.css build/bundle.js > $@
