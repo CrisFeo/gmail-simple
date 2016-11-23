@@ -1,0 +1,80 @@
+// The basic HTML version of gmail has some heinous default styles applied to
+// it. This file handles overriding many of them to create a flatter,
+// well-spaced layout.
+
+table {
+  background-color: white;
+
+  // Divider between the sidebar and the email list
+  td[width="5"][bgcolor="#C3D9FF"] {
+    background-color: white;
+  }
+
+  // Sidebar navigation
+  &.m {
+
+    td {
+      padding: 10px 5px;
+
+      // Divider between "Compose mail" and "Inbox"
+      &[height="5"] {
+        display: none;
+      }
+
+      // Highlighted sidebar section
+      &[bgcolor="#C3D9FF"] {
+        background-color: white;
+      }
+
+      // The star graphic next to "Starred"
+      a[href="?&s=r"] img {
+        display: none;
+      }
+    }
+  }
+
+  // Email list
+  &.th {
+
+    // Read email rows
+    tr[bgcolor="#E8EEF7"] {
+      background-color: white;
+    }
+
+    // Email columns
+    td {
+      border-style: none;
+      padding: 10px 5px;
+
+      // Checkbox segment
+      &:nth-child(1) {
+        width: 3%;
+
+        // Star image
+        img {
+          display: none;
+        }
+      }
+
+      // Author segment
+      &:nth-child(2) {
+        width: 15%;
+
+        // "»" separator
+        .ar {
+          display: none;
+        }
+      }
+
+      // Title segment
+      &:nth-child(3) {
+        width: auto;
+      }
+
+      // Date segment
+      &:nth-child(4) {
+        width: 5%;
+      }
+    }
+  }
+}

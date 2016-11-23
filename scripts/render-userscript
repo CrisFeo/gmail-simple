@@ -33,15 +33,10 @@ printf '// ==UserScript==
 
 // Bundled styles
 (function(){
-  var head = document.getElementsByTagName("head")[0];
-  if (!head) {
-    console.error("Gmail Simple: Could not inject styles");
-    return;
-  }
-  var style = document.createElement("style");
-  style.type = "text/css";
-  style.innerHTML = "%s";
-  head.appendChild(style);
+  var s = document.createElement("style");
+  s.type = "text/css";
+  s.innerHTML = "%s";
+  (document.head || document.documentElement).appendChild(s);
 })();
 
 // Bundled code

@@ -11,15 +11,10 @@
 
 // Bundled styles
 (function(){
-  var head = document.getElementsByTagName("head")[0];
-  if (!head) {
-    console.error("Gmail Simple: Could not inject styles");
-    return;
-  }
-  var style = document.createElement("style");
-  style.type = "text/css";
-  style.innerHTML = "#gbar,#guser,.gbh {  display: none; }input[name=\"nvp_site_web\"],a[href=\"?&pv=tl&v=as\"],a[href=\"?&pv=tl&v=caf\"] {  display: none; }a[href=\"?&v=cl\"],table.l {  display: none; }input[name=\"nvp_a_sp\"],select[name=\"tact\"],input[name=\"nvp_tbu_go\"] {  display: none; }form[name=\"f\"] table:nth-of-type(3) {  display: none; }.ft {  display: none; }";
-  head.appendChild(style);
+  var s = document.createElement("style");
+  s.type = "text/css";
+  s.innerHTML = "#gbar,#guser,.gbh {  display: none; }td[width=\"143\"] {  display: none; }input[name=\"nvp_site_web\"],a[href=\"?&pv=tl&v=as\"],a[href=\"?&pv=tl&v=caf\"] {  display: none; }a[href=\"?&v=cl\"],table.l {  display: none; }input[name=\"nvp_a_sp\"],select[name=\"tact\"],input[name=\"nvp_tbu_go\"] {  display: none; }form[name=\"f\"] table:nth-of-type(3) {  display: none; }.ft {  display: none; }table {  background-color: white; }  table td[width=\"5\"][bgcolor=\"#C3D9FF\"] {    background-color: white; }  table.m td {    padding: 10px 5px; }    table.m td[height=\"5\"] {      display: none; }    table.m td[bgcolor=\"#C3D9FF\"] {      background-color: white; }    table.m td a[href=\"?&s=r\"] img {      display: none; }  table.th tr[bgcolor=\"#E8EEF7\"] {    background-color: white; }  table.th td {    border-style: none;    padding: 10px 5px; }    table.th td:nth-child(1) {      width: 3%; }      table.th td:nth-child(1) img {        display: none; }    table.th td:nth-child(2) {      width: 15%; }      table.th td:nth-child(2) .ar {        display: none; }    table.th td:nth-child(3) {      width: auto; }    table.th td:nth-child(4) {      width: 5%; }";
+  (document.head || document.documentElement).appendChild(s);
 })();
 
 // Bundled code

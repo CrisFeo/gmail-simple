@@ -1,13 +1,18 @@
-// There are a number of elements of the gmail interface that are not necessary
-// for basic interaction. This included many of the header/footer/sidebar
-// sections as well as some visual sizing elements. This file handles marking
-// them as `display: none` or otherwise removing them.
+// There are a number of interactive elements of the gmail interface that are
+// not necessary for basic interaction. This includes many of the
+// header/footer/sidebar sections as well as some visual sizing elements. This
+// file handles marking them as `display: none` or otherwise removing them.
 
 // Hide the header link bar
 #gbar,
 #guser,
 .gbh
 {
+  display: none;
+}
+
+// Hide logo image
+td[width="143"] {
   display: none;
 }
 
