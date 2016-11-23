@@ -1,18 +1,28 @@
 #!/bin/bash
 set -e
 
+# Renders a Tampermoney userscript using the provided style and source files to
+# standard out.
 
-SOURCE_FILE=$1
-if [ -z "$SOURCE_FILE" ]; then
-  echo "Must provide source file as first argument"
+CSS_FILE=$1
+if [ -z "$CSS_FILE" ]; then
+  echo "Must provide css file as first argument"
   exit 1
 fi
 
-SOURCE_CONTENTS=$(cat "$SOURCE_FILE")
+JS_FILE=$2
+if [ -z "$JS_FILE" ]; then
+  echo "Must provide js file as second argument"
+  exit 1
+fi
+
+# Read the input files, escaping and removing newlines in the CSS.
+CSS_CONTENTS=$(sed 's#"#\\"#g' < "$CSS_FILE" | tr -d '\n\r')
+JS_CONTENTS=$(cat "$JS_FILE")
 
 printf '// ==UserScript==
 // @name         Gmail Simple
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/CrisFeo/gmail-simple
 // @version      0.1
 // @description  Spruces up the basic HTML version of gmail to make it look nicer and function better with vimium.
 // @author       CrisFeo
@@ -20,4 +30,18 @@ printf '// ==UserScript==
 // @grant        none
 // ==/UserScript==
 
-%s' "$SOURCE_CONTENTS"
+// Bundled styles
+(function(){
+  var head = document.getElementsByTagName("head")[0];
+  if (!head) {
+    console.error("Gmail Simple: Could not inject styles");
+    return;
+  }
+  var style = document.createElement("style");
+  style.type = "text/css";
+  style.innerHTML = "%s";
+  head.appendChild(style);
+});
+
+// Bundled code
+%s' "$CSS_CONTENTS" "$JS_CONTENTS"

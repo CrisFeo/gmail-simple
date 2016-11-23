@@ -26,7 +26,7 @@ tags: $(SRC_JS)
 
 dist/styles.css: style/index.scss $(SRC_SCSS)
 	@mkdir -p $(@D)
-	$(NODE-SASS) -q $< $@
+	@$(NODE-SASS) -q $< $@
 
 dist/bundle.js: src/index.js $(SRC_JS)
 	@mkdir -p $(@D)
@@ -34,5 +34,4 @@ dist/bundle.js: src/index.js $(SRC_JS)
 
 dist/gmail-simple.user.js: dist/bundle.js dist/styles.css
 	@mkdir -p $(@D)
-	@scripts/render-userscript dist/bundle.js > $@
-	@echo TODO - Make this target bundle styles into template as well.
+	@scripts/render-userscript dist/styles.css dist/bundle.js > $@

@@ -2,4 +2,11 @@
   &-big {
     color: red;
   }
+  &:after {
+    contents: "hello";
+  }
+}
+
+body {
+  background-color: red;
 }
